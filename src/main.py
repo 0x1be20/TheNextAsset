@@ -43,6 +43,8 @@ def initialize():
             from assets.okex_future import OKExFutureAsset as AssetServer
         elif platform == const.BINANCE:
             from assets.binance import BinanceAsset as AssetServer
+        elif platform == const.BINANCE_FUTURE:
+            from assets.binance_future import BinanceFutureAsset as AssetServer
         elif platform == const.HUOBI:
             from assets.huobi import HuobiAsset as AssetServer
         elif platform == const.DERIBIT:
