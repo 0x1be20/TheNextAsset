@@ -8,6 +8,7 @@ Date:   2019/07/18
 Email:  huangtao@ifclover.com
 """
 
+from time import time
 from quant.utils import tools
 from quant.utils import logger
 from quant.event import EventAsset
@@ -72,5 +73,5 @@ class CoinsuperPreAsset:
 
         # Publish AssetEvent.
         timestamp = tools.get_cur_timestamp_ms()
-        EventAsset(self._platform, self._account, self._assets, timestamp, update).publish()
+        EventAsset(self._platform, self._account, self._assets, timestamp, update,time()).publish()
         logger.info("platform:", self._platform, "account:", self._account, "asset:", self._assets, caller=self)

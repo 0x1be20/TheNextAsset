@@ -10,6 +10,7 @@ Email:  huangtao@ifclover.com
 
 import json
 import asyncio
+from time import time
 
 from quant.utils import tools
 from quant.utils import logger
@@ -179,5 +180,5 @@ class DeribitAsset(Websocket):
             update = True
         self._last_assets = self._assets
         timestamp = tools.get_cur_timestamp_ms()
-        EventAsset(self._platform, self._account, self._assets, timestamp, update).publish()
+        EventAsset(self._platform, self._account, self._assets, timestamp, update,time()).publish()
         logger.info("platform:", self._platform, "account:", self._account, "asset:", self._assets, caller=self)
