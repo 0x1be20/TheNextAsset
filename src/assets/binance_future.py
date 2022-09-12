@@ -59,12 +59,14 @@ class BinanceFutureAsset:
             free = float(item.get("availableBalance"))
             total = float(item.get("walletBalance"))
             locked = total - free
+            unrealized_profit = float(item.get("unrealizedProfit",0))
 
             if total > 0:
                 assets[name] = {
                     "total": "%.8f" % total,
                     "free": "%.8f" % free,
                     "locked": "%.8f" % locked,
+                    "unrealized_profit":"%.8f" % unrealized_profit,
                 }
 
         if assets == self._assets:
